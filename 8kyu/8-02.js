@@ -21,7 +21,6 @@ function eachCons(array, n) {
         }
         res.push(temp);
     }
-
     return res;
 }
 
