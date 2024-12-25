@@ -6,6 +6,9 @@
 
 // Go to work!
 
-function fireFight(s){
-   return s.split(' ').map(e => e.toLowerCase() === 'fire' ? '~~' : e).join(' ');
+function fireFight(s) {
+    return s
+        .split(" ")
+        .map((e) => (e.toLowerCase() === "fire" ? "~~" : e))
+        .join(" ");
 }
