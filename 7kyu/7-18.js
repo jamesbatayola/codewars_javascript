@@ -19,13 +19,11 @@ function SubstringTest(str1, str2) {
     str1 = str1.toLowerCase();
     str2 = str2.toLowerCase();
 
-    for (let i = 0; i < str2.length - 1; i++) {
-        let f = str2.substring(i);
-        let s = str2.substring(i, str2.length - (1 - i));
-        if (str1.includes(f) || str2.includes(s)) return true;
-    }
+    for (let i = 0; i <= str2.length - 2; i++)
+        if (str1.includes(`${str2[i]}${str1[i + 1]}`)) return true;
 
     return false;
 }
 
 console.log(SubstringTest("Something", "Fun"));
+console.log(SubstringTest("Something", "Home"));
