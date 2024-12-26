@@ -13,14 +13,18 @@
 // "Bangkok"    -->  "b:*,a:*,n:*,g:*,k:**,o:*"
 // "Las Vegas"  -->  "l:*,a:**,s:**,v:*,e:*,g:*"
 
-function _getStrings(city){
-    const res = [];
-    const _city = city.toLowerCase();
-    [...new Set(_city)].forEach(e => {
-        if(e !== ' ')
-            res.push(`${e.toLowerCase()}:${'*'.repeat([..._city].filter(f => f === e).length)}`);
-    });
-    return res.join(',');
+function _getStrings(city) {
+   const res = [];
+   const _city = city.toLowerCase();
+   [...new Set(_city)].forEach((e) => {
+      if (e !== " ")
+         res.push(
+            `${e.toLowerCase()}:${"*".repeat(
+               [..._city].filter((f) => f === e).length
+            )}`
+         );
+   });
+   return res.join(",");
 }
 
 console.log(_getStrings("Bangkok"));

@@ -7,13 +7,17 @@
 // Translations and comments (and upvotes) welcome!
 
 // var fives = factory(5);
+// var fives = factory(5);
 // var myArray = [1, 2, 3];
+// fives(myArray);
 // fives(myArray);
 
 function factory(x) {
-    return (arr) => {
-        return arr.map((e) => e * x);
-    };
+   return (arr) => {
+      return arr.map((e) => e * x);
+   };
 }
+
+console.log(factory([1, 2, 3]));
 
 console.log(factory([1, 2, 3]));

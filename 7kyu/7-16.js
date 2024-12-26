@@ -22,21 +22,22 @@
 //     hahahahahaHaHaHa = female + male => 2
 //     HaHaHahahaHaHa = male + female + male => 3
 
-var kookaCounter = function(laughing) {
-    if(laughing === '') return 0;
+var kookaCounter = function (laughing) {
+   if (laughing === "") return 0;
 
-    laughing = laughing.replace(/a/g, '');
-    let count = 1, init = laughing[0];
-    [...laughing].forEach((e, i) => {
-        if(init !== laughing[i]) {
-            count++;
-            init = laughing[i];
-        }
-    })
+   laughing = laughing.replace(/a/g, "");
+   let count = 1,
+      init = laughing[0];
+   [...laughing].forEach((e, i) => {
+      if (init !== laughing[i]) {
+         count++;
+         init = laughing[i];
+      }
+   });
 
-    return count;
-}
+   return count;
+};
 
-console.log(kookaCounter('hahahahah'));
-console.log(kookaCounter('Haha'));
-console.log(kookaCounter('HaHaHahahaHaHa'));
+console.log(kookaCounter("hahahahah"));
+console.log(kookaCounter("Haha"));
+console.log(kookaCounter("HaHaHahahaHaHa"));

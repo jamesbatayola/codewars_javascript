@@ -6,5 +6,5 @@
 // for inputs  "Hello world!!!", 'A'  ->  return -1
 
 function secondSymbol(s, symbol) {
-    return s.indexOf(symbol, s.indexOf(symbol) + 1);
+   return s.indexOf(symbol, s.indexOf(symbol) + 1);
 }

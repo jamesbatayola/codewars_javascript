@@ -9,19 +9,19 @@
 // "cItYTowNcARShoW"               ==>  0
 
 function sumOfABeach(beach) {
-    const lower = beach.toLowerCase();
-    let count = 0;
-    let word = '';
-    for(let i = 0; i < lower.length; i++) {
-        word += lower[i];
-        ['sand', 'water', 'fish', 'sun'].some(e => {
-            if(word.includes(e)) {
-                count++;
-                word = '';
-            }
-        })
-    }
-    return count;
+   const lower = beach.toLowerCase();
+   let count = 0;
+   let word = "";
+   for (let i = 0; i < lower.length; i++) {
+      word += lower[i];
+      ["sand", "water", "fish", "sun"].some((e) => {
+         if (word.includes(e)) {
+            count++;
+            word = "";
+         }
+      });
+   }
+   return count;
 }
 
 //  console.log(sumOfABeach('WAtErSlIde'));
@@ -29,7 +29,7 @@ function sumOfABeach(beach) {
 //  console.log(sumOfABeach('gOfIshsunesunFiSh'));
 //  console.log(sumOfABeach('cItYTowNcARShoW'));
 
- console.log(sumOfABeach('SanD'));
- console.log(sumOfABeach('sunshine'));
- console.log(sumOfABeach('sunsunsunsun'));
- console.log(sumOfABeach('123FISH321'));
+console.log(sumOfABeach("SanD"));
+console.log(sumOfABeach("sunshine"));
+console.log(sumOfABeach("sunsunsunsun"));
+console.log(sumOfABeach("123FISH321"));

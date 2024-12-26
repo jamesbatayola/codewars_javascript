@@ -19,14 +19,14 @@
 // Output: 2, 3, 4, 23, 5
 
 function sortByValueAndIndex(array) {
-    let nums = [];
+   let nums = [];
 
-    for(let i = 0; i < array.length; i++) 
-        nums.push([array[i], array[i] * (i+1)]);
+   for (let i = 0; i < array.length; i++)
+      nums.push([array[i], array[i] * (i + 1)]);
 
-    nums.sort((a,b)=>a[1] - b[1]);
+   nums.sort((a, b) => a[1] - b[1]);
 
-    return nums.map(n => n[0]);
+   return nums.map((n) => n[0]);
 }
 
-console.log(sortByValueAndIndex([23, 2, 3, 4, 5])) 
+console.log(sortByValueAndIndex([23, 2, 3, 4, 5]));

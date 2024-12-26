@@ -8,18 +8,17 @@
 
 // Write a function that returns this sequence given a number N. Try generating the elements of the resulting list in ascending order, i.e., without resorting to a list reversal or prependig the elements to a list.
 
-function climb(n){
-    const res = [n];
-    while(res[0] !== 1) {
-        const num = Math.floor(n / 2);
-        res.unshift(num);
-        n = num;
-    }
-    return res;
+function climb(n) {
+   const res = [n];
+   while (res[0] !== 1) {
+      const num = Math.floor(n / 2);
+      res.unshift(num);
+      n = num;
+   }
+   return res;
 }
 
 console.log(climb(13));
 
 // --- OTHER_ANSWERS --- //
-const _climb = n =>
-    !n ? [] : [...climb(n >> 1), n];
+const _climb = (n) => (!n ? [] : [...climb(n >> 1), n]);

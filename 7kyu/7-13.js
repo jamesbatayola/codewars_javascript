@@ -20,11 +20,13 @@
 //     [output] an integer
 
 function rangeBitCount(a, b) {
-    const arr = [];
-    for(let i = a; i <= b; i++) {
-        arr.push(i);
-    }
-    return arr.map(n => n.toString(2).replace(/0/g, '').length).reduce((x, y) => x + y);
+   const arr = [];
+   for (let i = a; i <= b; i++) {
+      arr.push(i);
+   }
+   return arr
+      .map((n) => n.toString(2).replace(/0/g, "").length)
+      .reduce((x, y) => x + y);
 }
 
-console.log(rangeBitCount(2, 7))
+console.log(rangeBitCount(2, 7));

@@ -15,14 +15,18 @@
 // task('Monday', 15, 2) -> 'It is Monday today, James, you have to work, you must spray 15 trees and you need 30 dollars to buy liquid'
 
 function task(w, n, c) {
-    const workers = {
-        "monday": "James",
-        "tuesday": "John",
-        "wednesday": "Robert",
-        "thursday": "Michael",
-        "friday": "William"
-    }
-    return `It is ${w} today, ${workers[w.toLowerCase()]}, you have to work, you must spray ${n} trees and you need ${n*c} dollars to buy liquid`;
+   const workers = {
+      monday: "James",
+      tuesday: "John",
+      wednesday: "Robert",
+      thursday: "Michael",
+      friday: "William",
+   };
+   return `It is ${w} today, ${
+      workers[w.toLowerCase()]
+   }, you have to work, you must spray ${n} trees and you need ${
+      n * c
+   } dollars to buy liquid`;
 }
 
-console.log(task('Monday', 15 ,2));
+console.log(task("Monday", 15, 2));

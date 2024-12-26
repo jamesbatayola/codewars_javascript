@@ -7,8 +7,8 @@
 // Go to work!
 
 function fireFight(s) {
-    return s
-        .split(" ")
-        .map((e) => (e.toLowerCase() === "fire" ? "~~" : e))
-        .join(" ");
+   return s
+      .split(" ")
+      .map((e) => (e.toLowerCase() === "fire" ? "~~" : e))
+      .join(" ");
 }
