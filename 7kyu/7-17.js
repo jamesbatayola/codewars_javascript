@@ -17,12 +17,12 @@
 // 4444
 
 function pattern(n) {
-    let output = "";
-    n = Math.floor(n / 2);
-    for (let i = 2; i <= n * 2; i += 2) {
-        output += `${i}`.repeat(i) + (i + 2 <= n * 2 ? "\n" : "");
-    }
-    return output;
+   let output = "";
+   n = Math.floor(n / 2);
+   for (let i = 2; i <= n * 2; i += 2) {
+      output += `${i}`.repeat(i) + (i + 2 <= n * 2 ? "\n" : "");
+   }
+   return output;
 }
 
 console.log(pattern(8));

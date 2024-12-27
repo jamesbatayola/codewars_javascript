@@ -12,16 +12,16 @@
 // for 2, 3, [0,1,2,3,4] return [ [0,1], [3,4] ]
 
 function window(length, offset, list) {
-    const res = [];
-    outer: for (let i = 0; i <= list.length; i += offset) {
-        const temp = [];
-        for (let j = i; j < i + length; j++) {
-            if (list[j] === undefined) break outer;
-            temp.push(list[j]);
-        }
-        res.push(temp);
-    }
-    return res;
+   const res = [];
+   outer: for (let i = 0; i <= list.length; i += offset) {
+      const temp = [];
+      for (let j = i; j < i + length; j++) {
+         if (list[j] === undefined) break outer;
+         temp.push(list[j]);
+      }
+      res.push(temp);
+   }
+   return res;
 }
 
 // console.log(window(2, 1, [0, 1, 2, 3, 4]));
