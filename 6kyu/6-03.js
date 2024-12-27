@@ -1,109 +1,48 @@
-// You are given a string of n lines, each substring being n characters long: For example:
+// Description:
 
-// s = "abcd\nefgh\nijkl\nmnop"
+// A child is playing with a ball on the nth floor of a tall building. The height of this floor above ground level, h, is known.
 
-// We will study some transformations of this square of strings.
+// He drops the ball out of the window. The ball bounces (for example), to two-thirds of its height (a bounce of 0.66).
 
-// Let's now transform this string!
+// His mother looks out of a window 1.5 meters from the ground.
 
-//     Symmetry with respect to the main diagonal: diag_1_sym (or diag1Sym or diag-1-sym)
+// How many times will the mother see the ball pass in front of her window (including when it's falling and bouncing)?
+// Three conditions must be met for a valid experiment:
 
-//     diag_1_sym(s) => "aeim\nbfjn\ncgko\ndhlp"
+//     Float parameter "h" in meters must be greater than 0
+//     Float parameter "bounce" must be greater than 0 and less than 1
+//     Float parameter "window" must be less than h.
 
-//     Clockwise rotation 90 degrees: rot_90_clock (or rot90Clock or rot-90-clock)
+// If all three conditions above are fulfilled, return a positive integer, otherwise return -1.
+// Note:
 
-//     rot_90_clock(s) => "miea\nnjfb\nokgc\nplhd"
-
-//     selfie_and_diag1(s) (or selfieAndDiag1 or selfie-and-diag1) It is initial string + string obtained by symmetry with respect to the main diagonal.
-
-//     s = "abcd\nefgh\nijkl\nmnop" --> 
-//     "abcd|aeim\nefgh|bfjn\nijkl|cgko\nmnop|dhlp"
-
-//     or printed for the last:
-
-// selfie_and_diag1
-// abcd|aeim
-// efgh|bfjn
-// ijkl|cgko 
-// mnop|dhlp
-
-// Task:
-
-//     Write these functions diag_1_sym, rot_90_clock, selfie_and_diag1
-
-// and
-
-//     high-order function oper(fct, s) where
-
-//     fct is the function of one variable f to apply to the string s (fct will be one of diag_1_sym, rot_90_clock, selfie_and_diag1)
-
+// The ball can only be seen if the height of the rebounding ball is strictly greater than the window parameter.
 // Examples:
 
-// s = "abcd\nefgh\nijkl\nmnop"
-// oper(diag_1_sym, s) => "aeim\nbfjn\ncgko\ndhlp"
-// oper(rot_90_clock, s) => "miea\nnjfb\nokgc\nplhd"
-// oper(selfie_and_diag1, s) => "abcd|aeim\nefgh|bfjn\nijkl|cgko\nmnop|dhlp"
+// - h = 3, bounce = 0.66, window = 1.5, result is 3
 
-// Notes:
+// - h = 3, bounce = 1, window = 1.5, result is -1
 
-//     The form of the parameter fct in oper changes according to the language. You can see each form according to the language in "Your test cases".
+// (Condition 2) not fulfilled).
 
-//     It could be easier to take these katas from number (I) to number (IV)
+function bouncingBall(h, bounce, window) {
+   if (h <= 0 || bounce >= 1 || bounce <= 0 || window >= h) return -1;
 
-//     Bash Note: The output strings should be separated by \r instead of \n. See "Sample Tests".
-
-// function rot90Clock(strng) {
-//     const res = [];
-//     const sub = strng.split('\n')
-//     for(let i = 0; i < sub.length - 1; i++) {
-//         let temp = "";
-//         for(let j = sub.length - 1; j >= 0; j--) {
-//             temp += sub[j][i];
-//         }
-//         res.push(temp);
-//     }
-//     return res.join('\n');
-// }
-
-function rot90Clock(strng) {
-    const res = [];
-    const sub = strng.split('\n')
-    for(let i = sub.length - 1; i >= 0; i--) {
-        let temp = "";
-        for(let j = 0; j <= sub.length - 1; j++) {
-            temp += sub[j][i];
-        }
-        res.unshift(temp);
-    }
-    return res.join('\n');
+   let count = 0;
+   while (h * bounce > window) {
+      h = h * bounce;
+      count += 2;
+   }
+   return count + 1;
 }
 
-function diag1Sym(strn) {
-    let cb = rot90Clock(strn).split('\n');
-    for(let i = 0; i < cb.length; i++) {
-        cb[i] = [...cb[i]].reverse().join('');
-    }
-    return cb.join('\n');
-}
+console.log(bouncingBall(3.0, 0.66, 1.5));
+console.log(bouncingBall(30, 0.66, 1.5));
+console.log(bouncingBall(30, 1.0, 1.5));
 
-function selfieAndDiag1(strng) {
-    const subs = strng.split('\n');
-    const rot90 = rot90Clock(strng).split('\n');
-    for(let i = 0; i < subs.length; i++) {
-        subs[i] += `|${rot90[i]}`;
-    }
-    return subs.join('\n');
-}
+console.log(bouncingBall(30, 0.6, 10));
 
-function oper(fct, s) {
-    return fct(s);
-}
+// track ball current height upon descending
+// increment 'count' everytime mother sees the ball0
 
-// const rot90 = rot90Clock("abcd\nefgh\nijkl\nmnop");
-// const diag = diag1Sym(rot90);
-// const selfieDiag = selfieAndDiag1("abcd\nefgh\nijkl\nmnop");
-
-console.log(oper(rot90Clock, "rgavce\nvGcEKl\ndChZVW\nxNWgXR\niJBYDO\nSdmEKb"));
-console.log(rot90Clock("rgavce\nvGcEKl\ndChZVW\nxNWgXR\niJBYDO\nSdmEKb"));
-// console.log(oper(diag1Sym, "abcd\nefgh\nijkl\nmnop"));
-// console.log(oper(selfieAndDiag1, "abcd\nefgh\nijkl\nmnop"));
+console.log(1.0 === 1);
