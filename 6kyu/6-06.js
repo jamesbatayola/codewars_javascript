@@ -64,8 +64,3 @@ Array.prototype.inRange = function (a, b) {
   }
   return res;
 };
-
-// const inRangeTest = [2, 3, 4, 4.5, "5.0", 5, 6, 7, 8].inRange(4, 6);
-// console.log(inRangeTest);
-
-// console.log([1, 2, 18, 19, 20, 21, 22, 30, 40, 50, 100].even().inRange(18, 30));
