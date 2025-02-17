@@ -15,8 +15,7 @@ function averageLength(array) {
   const average = Math.round(totalEachLength / array.length);
   const res = [];
   array.forEach((e) => {
-    const temp = e[0].repeat(average);
-    res.push(temp);
+    res.push(e[0].repeat(average));
   });
   return res;
 }
