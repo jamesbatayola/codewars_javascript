@@ -14,7 +14,7 @@ function createPhoneNumber(numbers) {
 	return `${first} ${second.join("")}`;
 }
 
-// --- CLEVER --- //
+// --- CLEVER_VARIATION --- //
 
 function createPhoneNumber(numbers) {
 	var format = "(xxx) xxx-xxxx";
