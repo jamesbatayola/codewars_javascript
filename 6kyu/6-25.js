@@ -41,7 +41,7 @@
 // rotate(data, 12478) // => [3, 4, 5, 1, 2]
 
 function _rotate(array, n) {
-	if (n === 0 || array.length === Math.abs(n)) return array;
+	if (n === 0 || Math.abs(n) % array.length === 0) return array;
 
 	if (n > 0) {
 		for (let i = 0; i < n; i++) {
@@ -73,6 +73,6 @@ console.log(_rotate([1, 2, 3, 4, 5], -5));
 
 console.log();
 
-console.log(rotate([1, 2, 3, 4, 5], 7));
+console.log(_rotate([1, 2, 3, 4, 5], 7));
 console.log(_rotate([1, 2, 3, 4, 5], 11));
 console.log(_rotate([1, 2, 3, 4, 5], 12478));
