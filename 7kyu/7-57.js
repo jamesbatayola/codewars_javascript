@@ -10,7 +10,6 @@ function rowWeights(array) {
 
   for (let data of array) {
     res[pos++] += data;
-
     if (pos > 1) pos -= 2;
   }
 
